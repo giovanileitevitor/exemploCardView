@@ -3,14 +3,13 @@ package com.example.exemplocardview
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.exemplocardview.componenteCardView.ExpandCardView
-import kotlinx.android.synthetic.main.activity_cardview_expand.*
+import kotlinx.android.synthetic.main.activity_card_question_expand.*
 
 class CardViewActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cardview_expand)
+        setContentView(R.layout.activity_card_question_expand)
 
         initCardView()
     }
@@ -31,17 +30,14 @@ class CardViewActivity : AppCompatActivity() {
         }
         expandcardview1.startAccessibility()
 
-        expandcardview1.onClickButton {
-            Toast.makeText(applicationContext, "TESTE", Toast.LENGTH_LONG).show()
+
+        expandcardview1.onUnlikeClickButton{
+            Toast.makeText(applicationContext, "Clicou em Like", Toast.LENGTH_SHORT).show()
         }
 
-//        expandcardview1.onClickLikeButton{
-//            Toast.makeText(applicationContext, "Clicou em Like", Toast.LENGTH_SHORT).show()
-//        }
-//
-//        expandcardview1.onClickUnlikeButton{
-//            Toast.makeText(applicationContext, "Clicou em Unlike", Toast.LENGTH_SHORT).show()
-//        }
+        expandcardview1.onLikeClickButton{
+            Toast.makeText(applicationContext, "Clicou em Unlike", Toast.LENGTH_SHORT).show()
+        }
 
     }
 }

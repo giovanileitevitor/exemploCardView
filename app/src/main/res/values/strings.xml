@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">exemploCardView</string>
+    <string name="card_title">Cintos de Segurança</string>
+    <string name="card_question">Os pneus de seu caminhão estão adequadamente calibrados e em bom estado?</string>
+    <string name="card_remarks">O cinto de segurança do lado do passageiro não está prendendo.</string>
+    <string name="card_remarks_counter">61/130.</string>
 </resources>

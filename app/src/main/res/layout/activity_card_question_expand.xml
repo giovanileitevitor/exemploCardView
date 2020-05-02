@@ -6,15 +6,15 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="@dimen/size_4">
 
-        <com.example.exemplocardview.componenteCardView.ExpandCardView
-            android:layout_marginTop="12dp"
+        <com.example.exemplocardview.componenteCardView.Card_Question_Expand
             android:id="@+id/expandcardview1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
+
 </ScrollView>

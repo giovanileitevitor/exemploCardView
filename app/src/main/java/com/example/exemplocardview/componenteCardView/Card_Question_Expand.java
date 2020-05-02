@@ -6,6 +6,8 @@ import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -13,37 +15,50 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.exemplocardview.R;
 
 
-public class ExpandCardView extends LinearLayout implements ExpandCardViewInterface {
+public class Card_Question_Expand extends LinearLayout implements Card_Question_Expand_Interface {
 
     public static final int DURATION = 300;
     public static final int ROTATION_90 = 90;
     public static final int ROTATION_270 = 270;
     private boolean isCardOpen = true;
 
+    //Header
     private ConstraintLayout mLayoutHeader;
-    private ImageView mIconImageHeader, mArrowImageheader;
+    private ImageView mIconImageHeader;
+    private ImageView mArrowImageheader;
     private TextView mTextHeader;
-    private LinearLayout mLayoutBody, mLayoutBodyBlock1, mLayoutBodyBlock2, mLayoutBodyBlocks;
-    private TextView mPrimaryTextBody;
-    private TextView mPrimaryValueBody;
-    private TextView mButton;
+
+    //Body
+    private LinearLayout mLayoutBody;
+    private LinearLayout mLayoutBodyBlocks;
+    private LinearLayout mLayoutBodyBlock1;
+    private TextView mTextQuestion;
+
+    private LinearLayout mLayoutBodyBlock2;
+    private ImageButton mUnlikeButton;
+    private ImageButton mLikeButton;
+
+    private ConstraintLayout mLayoutBodyBlock3;
+    private EditText mTextRemarks;
+    private TextView mCounterTextRemarks;
 
     private String mTitleHeader, mTextBlock1, mValueBlock1, mTextBlock2, mValueBlock2, mNameTextButton;
 
     private OnClickHeaderListener onHeaderClickListener;
-    private OnClickButtonListener onButtonClickListener;
+    private OnClickLikeButtonListener onLikeButtonClickListener;
+    private OnClickUnlikeButtonListener onUnlikeButtonClickListener;
 
-    public ExpandCardView(Context context) {
+    public Card_Question_Expand(Context context) {
         super(context);
         this.init(context);
     }
 
-    public ExpandCardView(Context context, AttributeSet attrs) {
+    public Card_Question_Expand(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.init(context);
     }
 
-    public ExpandCardView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public Card_Question_Expand(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.init(context);
     }
@@ -52,8 +67,12 @@ public class ExpandCardView extends LinearLayout implements ExpandCardViewInterf
         this.onHeaderClickListener = onHeaderClickListener;
     }
 
-    public void onClickButton(OnClickButtonListener onButtonClickListener) {
-        this.onButtonClickListener = onButtonClickListener;
+    public void onUnlikeClickButton(OnClickUnlikeButtonListener onUnlikeButtonClickListener) {
+        this.onUnlikeButtonClickListener = onUnlikeButtonClickListener;
+    }
+
+    public void onLikeClickButton(OnClickLikeButtonListener onLikeButtonClickListener) {
+        this.onLikeButtonClickListener = onLikeButtonClickListener;
     }
 
     public String getTitleHeader() {
@@ -105,34 +124,48 @@ public class ExpandCardView extends LinearLayout implements ExpandCardViewInterf
     }
 
     private void init(Context context) {
-        View cardRoot = View.inflate(context, R.layout.widget_card_view_expand, this);
+        View cardRoot = View.inflate(context, R.layout.card_question_expand, this);
 
+        //Header
         mLayoutHeader = cardRoot.findViewById(R.id.layout_header);
         mIconImageHeader = cardRoot.findViewById(R.id.icon_image_header);
         mArrowImageheader = cardRoot.findViewById(R.id.arrow_image_header);
         mTextHeader = cardRoot.findViewById(R.id.text_header);
+
+        //Body
         mLayoutBody = cardRoot.findViewById(R.id.layout_body);
         mLayoutBodyBlocks = cardRoot.findViewById(R.id.layout_body_blocks);
+
         mLayoutBodyBlock1 = cardRoot.findViewById(R.id.layout_body_block1);
+        mTextQuestion = cardRoot.findViewById(R.id.text_question);
+
         mLayoutBodyBlock2 = cardRoot.findViewById(R.id.layout_body_block2);
-        mPrimaryTextBody = cardRoot.findViewById(R.id.primary_text_body);
-        mPrimaryValueBody = cardRoot.findViewById(R.id.primary_value_body);
-        mButton = cardRoot.findViewById(R.id.text_button);
+        mUnlikeButton = cardRoot.findViewById(R.id.unlike_button);
+        mLikeButton = cardRoot.findViewById(R.id.like_button);
+
+        mLayoutBodyBlock3 = cardRoot.findViewById(R.id.layout_body_block3);
+        mTextRemarks = cardRoot.findViewById(R.id.text_remarks);
+        mCounterTextRemarks = cardRoot.findViewById(R.id.text_counter);
 
         setClicks();
     }
 
     private void setClicks() {
         mLayoutHeader.setOnClickListener(getOnClickLayoutHeader());
-        mButton.setOnClickListener(getOnClickButton());
+        mLikeButton.setOnClickListener(getOnClickButton());
+        mUnlikeButton.setOnClickListener(getOnClickButton());
     }
 
     private OnClickListener getOnClickButton() {
         return new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (onButtonClickListener != null) {
-                    onButtonClickListener.onClick();
+                if (onLikeButtonClickListener != null) {
+                    onLikeButtonClickListener.onClick();
+                }
+
+                if(onUnlikeButtonClickListener != null){
+                    onUnlikeButtonClickListener.onClick();
                 }
             }
         };
@@ -153,7 +186,7 @@ public class ExpandCardView extends LinearLayout implements ExpandCardViewInterf
     public void openCard() {
         isCardOpen = true;
         mLayoutHeader.setContentDescription("Recolher " + getTitleHeader());
-        AnimationCardViewExpand.expand(mLayoutBody);
+        Animation_Card_Question_Expand.expand(mLayoutBody);
         openAnim();
     }
 
@@ -166,7 +199,7 @@ public class ExpandCardView extends LinearLayout implements ExpandCardViewInterf
     public void closeCard() {
         isCardOpen = false;
         mLayoutHeader.setContentDescription("Expandir " + getTitleHeader());
-        AnimationCardViewExpand.collapse(mLayoutBody);
+        Animation_Card_Question_Expand.collapse(mLayoutBody);
         closeAnim();
     }
 
@@ -193,7 +226,7 @@ public class ExpandCardView extends LinearLayout implements ExpandCardViewInterf
     @Override
     public void setTextButton(String text) {
         setNameTextButton(text);
-        mButton.setText(text);
+        //mButton.setText(text);
     }
 
     @Override
@@ -214,17 +247,6 @@ public class ExpandCardView extends LinearLayout implements ExpandCardViewInterf
     }
 
     @Override
-    public void setValuesBlock2(String text, String value) {
-        if (TextUtils.isEmpty(text) && TextUtils.isEmpty(value)) {
-            mLayoutBodyBlock2.setVisibility(GONE);
-        } else {
-            mLayoutBodyBlock2.setVisibility(VISIBLE);
-            setTextPrimaryBlock2(text);
-            setValuePrimaryBlock2(value);
-        }
-    }
-
-    @Override
     public void startAccessibility() {
         mLayoutHeader.setContentDescription("Recolher " + getTitleHeader());
 
@@ -233,13 +255,13 @@ public class ExpandCardView extends LinearLayout implements ExpandCardViewInterf
 
         if (mLayoutBodyBlock1.getVisibility() == VISIBLE) {
             accessibilityBlock1 = getTextBlock1() + "." + getValueBlock1();
-            mPrimaryTextBody.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
-            mPrimaryValueBody.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+//            mPrimaryTextBody.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+            //mPrimaryValueBody.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
         }
 
-        if (mLayoutBodyBlock2.getVisibility() == VISIBLE) {
-            accessibilityBlock2 = "," + getTextBlock2() + "." + getValueBlock2();
-        }
+//        if (mLayoutBodyBlock2.getVisibility() == VISIBLE) {
+//            accessibilityBlock2 = "," + getTextBlock2() + "." + getValueBlock2();
+//        }
 
         String description1 = "";
         if (!TextUtils.isEmpty(accessibilityBlock1)) {
@@ -253,24 +275,24 @@ public class ExpandCardView extends LinearLayout implements ExpandCardViewInterf
 
         mLayoutBodyBlocks.setContentDescription(description1 + description2);
 
-        mButton.setContentDescription(getNameTextButton());
+        //mButton.setContentDescription(getNameTextButton());
     }
 
     private void setTextPrimaryBlock1(String text) {
         if (TextUtils.isEmpty(text)) {
-            mPrimaryTextBody.setVisibility(GONE);
+            mTextQuestion.setVisibility(GONE);
         } else {
             setTextBlock1(text);
-            mPrimaryTextBody.setText(text);
+            mTextQuestion.setText(text);
         }
     }
 
     private void setValuePrimaryBlock1(String value) {
         if (TextUtils.isEmpty(value)) {
-            mPrimaryValueBody.setVisibility(GONE);
+            mTextQuestion.setVisibility(GONE);
         } else {
             setValueBlock1(value);
-            mPrimaryValueBody.setText(value);
+            mTextQuestion.setText(value);
         }
     }
 
@@ -289,20 +311,18 @@ public class ExpandCardView extends LinearLayout implements ExpandCardViewInterf
     }
 
     @Override
-    public void setContentDescriptionValuePrimaryBlock2(String text) {
-
-    }
-
-    @Override
     public void setContentDescriptionValuePrimaryBlock1(String text) {
-        mPrimaryValueBody.setContentDescription(text);
+        //mPrimaryValueBody.setContentDescription(text);
     }
 
     public interface OnClickHeaderListener {
         void onClick(boolean bool);
     }
 
-    public interface OnClickButtonListener {
+    public interface OnClickLikeButtonListener {
+        void onClick();
+    }
+    public interface OnClickUnlikeButtonListener {
         void onClick();
     }
 }

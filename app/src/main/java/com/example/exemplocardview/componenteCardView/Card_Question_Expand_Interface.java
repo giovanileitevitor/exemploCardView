@@ -2,7 +2,7 @@ package com.example.exemplocardview.componenteCardView;
 
 import android.graphics.drawable.Drawable;
 
-interface ExpandCardViewInterface {
+interface Card_Question_Expand_Interface {
 
     void openCard();
 
@@ -18,12 +18,8 @@ interface ExpandCardViewInterface {
 
     void setValuesBlock1(String text, String value);
 
-    void setValuesBlock2(String text, String value);
-
     void startAccessibility();
 
     void setContentDescriptionValuePrimaryBlock1(String text);
-
-    void setContentDescriptionValuePrimaryBlock2(String text);
 
 }

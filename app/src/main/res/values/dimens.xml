@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Generic dimensions density pixel -->
+    <dimen name="match_constraint">0dp</dimen>
+    <dimen name="size_2">2dp</dimen>
+    <dimen name="size_4">4dp</dimen>
+    <dimen name="size_6">6dp</dimen>
+    <dimen name="size_8">8dp</dimen>
+    <dimen name="size_12">12dp</dimen>
+    <dimen name="size_16">16dp</dimen>
+    <dimen name="size_20">20dp</dimen>
+    <dimen name="size_24">24dp</dimen>
+    <dimen name="size_28">28dp</dimen>
+    <dimen name="size_32">32dp</dimen>
+    <dimen name="size_40">40dp</dimen>
+    <dimen name="size_80">80dp</dimen>
+
+    <!-- generic font sizes -->
+    <dimen name="font_size_2">2sp</dimen>
+    <dimen name="font_size_4">4sp</dimen>
+    <dimen name="font_size_8">8sp</dimen>
+    <dimen name="font_size_12">12sp</dimen>
+    <dimen name="font_size_14">14sp</dimen>
+    <dimen name="font_size_16">16sp</dimen>
+    <dimen name="font_size_20">20sp</dimen>
+    <dimen name="font_size_24">24sp</dimen>
+    <dimen name="font_size_28">28sp</dimen>
+    <dimen name="font_size_32">32sp</dimen>
+
+</resources>
