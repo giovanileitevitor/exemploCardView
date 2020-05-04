@@ -11,15 +11,36 @@
         android:background="@color/backgroundActivity"
         android:padding="@dimen/size_4">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Start Card"
+                android:layout_margin="@dimen/size_16"
+                android:id="@+id/btn_startCard"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Reset Card"
+                android:layout_margin="@dimen/size_16"
+                android:id="@+id/btn_resetCard"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+
         <com.example.exemplocardview.componenteCardView.CardQuestion
             android:id="@+id/expandcardview1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
-<!--        <com.example.exemplocardview.componenteCardView.Card_Question_Expand-->
-<!--            android:id="@+id/expandcardview2"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"/>-->
 
         <Button
             android:layout_width="match_parent"
@@ -47,13 +68,7 @@
             android:textAlignment="center"
             tools:text="O U T P U T"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Reset"
-            android:layout_margin="@dimen/size_16"
-            android:id="@+id/btn_resetCard"
-            android:layout_gravity="center"/>
+
 
 
 

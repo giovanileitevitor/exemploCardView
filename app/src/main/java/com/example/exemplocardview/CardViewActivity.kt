@@ -17,11 +17,9 @@ class CardViewActivity : AppCompatActivity() {
 
     private fun initCardView(){
         expandcardview1.closeCard()
-        expandcardview1.textHeader = "Pneus"
-        expandcardview1.textQuestion = "Os pneus de seu caminhao estão adequadamente calibrados?"
-        expandcardview1.textRemarks = "pneus em péssimo estado"
-        //expandcardview1.resetComponent()
-
+        expandcardview1.textHeader = "Informe o Titulo"
+        expandcardview1.textQuestion = "Informe a pergunta"
+        expandcardview1.textRemarks = "Informe as observaçoes"
     }
 
     private fun initListeners(){
@@ -66,6 +64,13 @@ class CardViewActivity : AppCompatActivity() {
 
         btn_resetCard.setOnClickListener{
             expandcardview1.resetComponent()
+        }
+
+        btn_startCard.setOnClickListener{
+            expandcardview1.closeCard()
+            expandcardview1.textHeader = "Informe o Titulo"
+            expandcardview1.textQuestion = "Informe a pergunta"
+            expandcardview1.textRemarks = "Informe as observaçoes"
         }
     }
 
