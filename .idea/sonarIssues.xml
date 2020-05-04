@@ -53,7 +53,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/exemplocardview/componenteCardView/CardQuestion.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/example/exemplocardview/componenteCardView/CardQuestionAnimation.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/exemplocardview/componenteCardView/CardQuestionInterface.kt">
           <value>
             <set />
           </value>
