@@ -47,6 +47,14 @@
             android:textAlignment="center"
             tools:text="O U T P U T"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reset"
+            android:layout_margin="@dimen/size_16"
+            android:id="@+id/btn_resetCard"
+            android:layout_gravity="center"/>
+
 
 
     </LinearLayout>

@@ -54,18 +54,18 @@ class CardViewActivity : AppCompatActivity() {
             if(expandcardview1.textRemarks.isNullOrEmpty()){
                 Toast.makeText(applicationContext, "Remarks not added", Toast.LENGTH_SHORT).show()
             }else{
-                txt_output.text = "${expandcardview1.titleHeader + 
-                                        expandcardview1.textQuestion + 
-                                            expandcardview1.textRemarks}"
+                txt_output.text = "${expandcardview1.textHeader + expandcardview1.textQuestion + expandcardview1.textRemarks}"
             }
 
             if(expandcardview1.isLikeSet || expandcardview1.isUnlikeSet){
-                txt_output2.text = "${expandcardview1.isLikeSet.toString() +
-                                        expandcardview1.isUnlikeSet.toString()}"
+                txt_output2.text = "${expandcardview1.isLikeSet.toString() + expandcardview1.isUnlikeSet.toString()}"
             }else{
-                txt_output2.text = "${expandcardview1.isLikeSet.toString() +
-                        expandcardview1.isUnlikeSet.toString()}"
+                txt_output2.text = "${expandcardview1.isLikeSet.toString() + expandcardview1.isUnlikeSet.toString()}"
             }
+        }
+
+        btn_resetCard.setOnClickListener{
+            expandcardview1.resetComponent()
         }
     }
 

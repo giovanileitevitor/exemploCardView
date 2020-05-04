@@ -48,6 +48,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/exemplocardview/componenteCardView/Animation_Card_Question_Expand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/example/exemplocardview/componenteCardView/Card_Question_.java">
           <value>
             <set />
@@ -64,6 +69,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/example/exemplocardview/componenteCardView/Card_Question_Expand_Interface.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/exemplocardview/componenteCardView/CharacterWatcher.kt">
           <value>
             <set />
           </value>
@@ -114,6 +124,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../questionnaire-android/features/questionnaire/src/main/res/drawable/background_btn.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../questionnaire-android/features/questionnaire/src/main/res/layout/card_question_expand.xml">
           <value>
             <set />
           </value>

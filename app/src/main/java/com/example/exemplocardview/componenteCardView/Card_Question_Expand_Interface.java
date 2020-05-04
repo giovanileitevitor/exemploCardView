@@ -33,4 +33,6 @@ interface Card_Question_Expand_Interface {
     boolean isLikeSet();
 
     boolean isUnlikeSet();
+
+    void resetComponent();
 }

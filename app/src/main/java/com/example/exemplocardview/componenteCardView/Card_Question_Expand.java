@@ -13,6 +13,8 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.exemplocardview.R;
 
+import org.jetbrains.annotations.Nullable;
+
 public class Card_Question_Expand extends LinearLayout implements Card_Question_Expand_Interface {
 
     public static final int DURATION = 300;
@@ -118,6 +120,8 @@ public class Card_Question_Expand extends LinearLayout implements Card_Question_
         mCounterTextRemarks = cardRoot.findViewById(R.id.text_counter);
 
         setClicks();
+
+        updateTextCounter();
     }
 
     private void setClicks() {
@@ -180,10 +184,10 @@ public class Card_Question_Expand extends LinearLayout implements Card_Question_
 
     private void setValueOnBlock2(String value) {
         if (TextUtils.isEmpty(value)) {
-            //TODO - Disable visibility on components used on this block2
+            //TODO - Giovani - Disable visibility on components used on this block2
         } else {
             setValueBlock2(value);
-            //TODO - Set values on components used on this block2
+            //TODO - Giovani - Set values on components used on this block2
         }
     }
 
@@ -194,6 +198,15 @@ public class Card_Question_Expand extends LinearLayout implements Card_Question_
             setValueBlock3(value);
             mTextRemarks.setText(value);
         }
+    }
+
+    private void updateTextCounter(){
+        mTextRemarks.addTextChangedListener(new CharacterWatcher() {
+            @Override
+            public void afterCharacterChanged(@Nullable Character character, @Nullable Integer count) {
+                mCounterTextRemarks.setText(count.toString() + "/130");
+            }
+        });
     }
 
     @Override
@@ -302,5 +315,16 @@ public class Card_Question_Expand extends LinearLayout implements Card_Question_
     @Override
     public boolean isUnlikeSet() {
         return isUnlikeIconSet;
+    }
+
+    @Override
+    public void resetComponent() {
+        closeCard();
+        mIconImageHeader.setImageResource(R.drawable.ic_thumbs_up_icon);
+        mLikeButton.setImageResource(R.drawable.ic_thumbs_up_icon);
+        mUnlikeButton.setImageResource(R.drawable.ic_thumbs_down_icon);
+        mTextHeader.setText("");
+        mTextQuestion.setText("");
+        mTextRemarks.setText("");
     }
 }
