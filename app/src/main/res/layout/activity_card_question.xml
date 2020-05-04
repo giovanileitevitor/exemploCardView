@@ -11,7 +11,7 @@
         android:background="@color/backgroundActivity"
         android:padding="@dimen/size_4">
 
-        <com.example.exemplocardview.componenteCardView.Card_Question_Expand
+        <com.example.exemplocardview.componenteCardView.CardQuestion
             android:id="@+id/expandcardview1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

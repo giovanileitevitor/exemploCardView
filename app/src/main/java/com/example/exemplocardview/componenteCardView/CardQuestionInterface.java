@@ -1,6 +1,6 @@
 package com.example.exemplocardview.componenteCardView;
 
-interface Card_Question_Expand_Interface {
+interface CardQuestionInterface {
 
     void openCard();
 

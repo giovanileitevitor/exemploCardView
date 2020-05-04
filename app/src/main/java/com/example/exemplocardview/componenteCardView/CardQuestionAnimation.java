@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
-class Animation_Card_Question_Expand {
+class CardQuestionAnimation {
 
     static void expand(final View v) {
         int matchParentMeasureSpec = View.MeasureSpec.makeMeasureSpec(((View) v.getParent()).getWidth(),

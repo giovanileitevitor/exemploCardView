@@ -15,7 +15,7 @@ import com.example.exemplocardview.R;
 
 import org.jetbrains.annotations.Nullable;
 
-public class Card_Question_Expand extends LinearLayout implements Card_Question_Expand_Interface {
+public class CardQuestion extends LinearLayout implements CardQuestionInterface {
 
     public static final int DURATION = 300;
     public static final int ROTATION_90 = 90;
@@ -37,17 +37,17 @@ public class Card_Question_Expand extends LinearLayout implements Card_Question_
 
     private String mTextBlock1, mValueBlock1, mTextBlock2, mValueBlock2, mTextBlock3, mValueBlock3, mTitleHeader;
 
-    public Card_Question_Expand(Context context) {
+    public CardQuestion(Context context) {
         super(context);
         this.init(context);
     }
 
-    public Card_Question_Expand(Context context, AttributeSet attrs) {
+    public CardQuestion(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.init(context);
     }
 
-    public Card_Question_Expand(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CardQuestion(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.init(context);
     }
@@ -96,7 +96,7 @@ public class Card_Question_Expand extends LinearLayout implements Card_Question_
     }
 
     private void init(Context context) {
-        View cardRoot = View.inflate(context, R.layout.card_question_expand, this);
+        View cardRoot = View.inflate(context, R.layout.card_question, this);
 
         //Header
         mLayoutHeader = cardRoot.findViewById(R.id.layout_header);
@@ -213,7 +213,7 @@ public class Card_Question_Expand extends LinearLayout implements Card_Question_
     public void openCard() {
         isCardOpen = true;
         mLayoutHeader.setContentDescription("Recolher " + getTitleHeader());
-        Animation_Card_Question_Expand.expand(mLayoutBody);
+        CardQuestionAnimation.expand(mLayoutBody);
         openAnim();
     }
 
@@ -222,7 +222,7 @@ public class Card_Question_Expand extends LinearLayout implements Card_Question_
     public void closeCard() {
         isCardOpen = false;
         mLayoutHeader.setContentDescription("Expandir " + getTitleHeader());
-        Animation_Card_Question_Expand.collapse(mLayoutBody);
+        CardQuestionAnimation.collapse(mLayoutBody);
         closeAnim();
     }
 
