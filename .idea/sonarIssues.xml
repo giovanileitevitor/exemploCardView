@@ -3,6 +3,11 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../GHQ_Android_Ontap_CPG/app/build_version.properties">
           <value>
             <set />
@@ -139,6 +144,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../questionnaire-android/features/questionnaire/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../questionnaire-android/features/questionnaire/src/main/java/com/abinbev/hive/questionnaire/infrastructure/customView/cardQuestionComponent/CardQuestion.java">
           <value>
             <set />
           </value>

@@ -17,9 +17,9 @@ class CardViewActivity : AppCompatActivity() {
 
     private fun initCardView(){
         expandcardview1.closeCard()
-        expandcardview1.textHeader = "Informe o Titulo"
-        expandcardview1.textQuestion = "Informe a pergunta"
-        expandcardview1.textRemarks = "Informe as observaçoes"
+        expandcardview1.textHeader("Informe o Titulo")
+        expandcardview1.textQuestion( "Informe a pergunta")
+        expandcardview1.textRemarks( "Informe as observaçoes")
     }
 
     private fun initListeners(){
@@ -49,16 +49,16 @@ class CardViewActivity : AppCompatActivity() {
 
         //Método para recuperar o texto de Remarks
         btn_printRemarks.setOnClickListener {
-            if(expandcardview1.textRemarks.isNullOrEmpty()){
-                Toast.makeText(applicationContext, "Remarks not added", Toast.LENGTH_SHORT).show()
-            }else{
-                txt_output.text = "${expandcardview1.textHeader + expandcardview1.textQuestion + expandcardview1.textRemarks}"
-            }
+//            if(expandcardview1.textRemarks().isNullOrEmpty()){
+//                Toast.makeText(applicationContext, "Remarks not added", Toast.LENGTH_SHORT).show()
+//            }else{
+//                txt_output.text = "${expandcardview1.textHeader + expandcardview1.textQuestion + expandcardview1.textRemarks}"
+//            }
 
-            if(expandcardview1.isLikeSet || expandcardview1.isUnlikeSet){
-                txt_output2.text = "${expandcardview1.isLikeSet.toString() + expandcardview1.isUnlikeSet.toString()}"
+            if(expandcardview1.isLikeSet() || expandcardview1.isUnlikeSet()){
+                txt_output2.text = "${expandcardview1.isLikeSet().toString() + expandcardview1.isUnlikeSet().toString()}"
             }else{
-                txt_output2.text = "${expandcardview1.isLikeSet.toString() + expandcardview1.isUnlikeSet.toString()}"
+                txt_output2.text = "${expandcardview1.isLikeSet().toString() + expandcardview1.isUnlikeSet().toString()}"
             }
         }
 
@@ -68,9 +68,9 @@ class CardViewActivity : AppCompatActivity() {
 
         btn_startCard.setOnClickListener{
             expandcardview1.closeCard()
-            expandcardview1.textHeader = "Informe o Titulo"
-            expandcardview1.textQuestion = "Informe a pergunta"
-            expandcardview1.textRemarks = "Informe as observaçoes"
+            expandcardview1.textHeader("Informe o Titulo")
+            expandcardview1.textQuestion( "Informe a pergunta")
+            expandcardview1.textRemarks( "Informe as observaçoes")
         }
     }
 

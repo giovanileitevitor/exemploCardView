@@ -217,7 +217,6 @@ public class CardQuestion extends LinearLayout implements CardQuestionInterface 
         openAnim();
     }
 
-
     @Override
     public void closeCard() {
         isCardOpen = false;
@@ -237,48 +236,33 @@ public class CardQuestion extends LinearLayout implements CardQuestionInterface 
     }
 
     @Override
-    public void setTextHeader(String text_title_header) {
-        if (TextUtils.isEmpty(text_title_header)) {
+    public void textHeader(@Nullable String text) {
+        if (TextUtils.isEmpty(text)) {
             mTextHeader.setVisibility(GONE);
         } else {
-            setTitleHeader(text_title_header);
+            setTitleHeader(text);
             mTextHeader.setText(getTitleHeader());
         }
     }
 
     @Override
-    public String getTextHeader() {
-        return mTitleHeader;
-    }
-
-    @Override
-    public void setTextQuestion(String text_question) {
-        if (TextUtils.isEmpty(text_question)) {
+    public void textQuestion(@Nullable String text) {
+        if (TextUtils.isEmpty(text)) {
             mLayoutBodyBlock1.setVisibility(GONE);
         } else {
             mLayoutBodyBlock1.setVisibility(VISIBLE);
-            setValueOnBlock1(text_question);
+            setValueOnBlock1(text);
         }
     }
 
     @Override
-    public String getTextQuestion() {
-        return mTextQuestion.getText().toString().trim();
-    }
-
-    @Override
-    public void setTextRemarks(String text_remarks){
-        if (TextUtils.isEmpty(text_remarks)) {
+    public void textRemarks(@Nullable String text) {
+        if (TextUtils.isEmpty(text)) {
             mLayoutBodyBlock3.setVisibility(GONE);
         } else {
             mLayoutBodyBlock3.setVisibility(VISIBLE);
-            setValueOnBlock3(text_remarks);
+            setValueOnBlock3(text);
         }
-    }
-
-    @Override
-    public String getTextRemarks() {
-        return mTextRemarks.getText().toString().trim();
     }
 
     @Override
