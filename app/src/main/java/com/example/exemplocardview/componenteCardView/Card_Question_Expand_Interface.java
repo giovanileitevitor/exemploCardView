@@ -1,7 +1,5 @@
 package com.example.exemplocardview.componenteCardView;
 
-import android.graphics.drawable.Drawable;
-
 interface Card_Question_Expand_Interface {
 
     void openCard();
@@ -10,16 +8,29 @@ interface Card_Question_Expand_Interface {
 
     boolean isCardOpen();
 
-    void setTextHeader(String text);
+    boolean isCardClose();
 
-    void setTextButton(String text);
+    void setTextHeader(String text_title_header);
 
-    void setIconHeader(Drawable drawable);
+    String getTextHeader();
 
-    void setValuesBlock1(String text, String value);
+    void setTextQuestion(String text_question);
 
-    void startAccessibility();
+    String getTextQuestion();
 
-    void setContentDescriptionValuePrimaryBlock1(String text);
+    void setTextRemarks(String text_remarks);
 
+    String getTextRemarks();
+
+    void setLikeIconActivated();
+
+    void setLikeIconDeactivated();
+
+    void setUnlikeIconActivated();
+
+    void setUnlikeIconDeactivated();
+
+    boolean isLikeSet();
+
+    boolean isUnlikeSet();
 }

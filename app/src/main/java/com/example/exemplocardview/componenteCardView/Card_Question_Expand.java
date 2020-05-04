@@ -2,7 +2,6 @@ package com.example.exemplocardview.componenteCardView;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -14,39 +13,27 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.exemplocardview.R;
 
-
 public class Card_Question_Expand extends LinearLayout implements Card_Question_Expand_Interface {
 
     public static final int DURATION = 300;
     public static final int ROTATION_90 = 90;
     public static final int ROTATION_270 = 270;
     private boolean isCardOpen = true;
+    private boolean isLikeIconSet = false;
+    private boolean isUnlikeIconSet = false;
 
-    //Header
-    private ConstraintLayout mLayoutHeader;
-    private ImageView mIconImageHeader;
-    private ImageView mArrowImageheader;
-    private TextView mTextHeader;
-
-    //Body
-    private LinearLayout mLayoutBody;
-    private LinearLayout mLayoutBodyBlocks;
-    private LinearLayout mLayoutBodyBlock1;
-    private TextView mTextQuestion;
-
-    private LinearLayout mLayoutBodyBlock2;
-    private ImageButton mUnlikeButton;
-    private ImageButton mLikeButton;
-
-    private ConstraintLayout mLayoutBodyBlock3;
+    private ConstraintLayout mLayoutHeader, mLayoutBodyBlock3;
+    private LinearLayout mLayoutBodyBlocks, mLayoutBody, mLayoutBodyBlock1, mLayoutBodyBlock2;
+    private ImageButton mUnlikeButton, mLikeButton;
+    private ImageView mIconImageHeader, mArrowImageheader;
+    private TextView mTextQuestion, mCounterTextRemarks, mTextHeader;
     private EditText mTextRemarks;
-    private TextView mCounterTextRemarks;
-
-    private String mTitleHeader, mTextBlock1, mValueBlock1, mTextBlock2, mValueBlock2, mNameTextButton;
 
     private OnClickHeaderListener onHeaderClickListener;
     private OnClickLikeButtonListener onLikeButtonClickListener;
     private OnClickUnlikeButtonListener onUnlikeButtonClickListener;
+
+    private String mTextBlock1, mValueBlock1, mTextBlock2, mValueBlock2, mTextBlock3, mValueBlock3, mTitleHeader;
 
     public Card_Question_Expand(Context context) {
         super(context);
@@ -83,44 +70,27 @@ public class Card_Question_Expand extends LinearLayout implements Card_Question_
         this.mTitleHeader = mTitleHeader;
     }
 
-    public String getTextBlock1() {
-        return mTextBlock1;
+    public interface OnClickHeaderListener {
+        void onClick(boolean bool);
     }
 
-    private void setTextBlock1(String mTextBlock1) {
-        this.mTextBlock1 = mTextBlock1;
+    public interface OnClickLikeButtonListener {
+        void onClick();
     }
-
-    public String getValueBlock1() {
-        return mValueBlock1;
+    public interface OnClickUnlikeButtonListener {
+        void onClick();
     }
 
     private void setValueBlock1(String mValueBlock1) {
         this.mValueBlock1 = mValueBlock1;
     }
 
-    public String getTextBlock2() {
-        return mTextBlock2;
-    }
-
-    private void setTextBlock2(String mTextBlock2) {
-        this.mTextBlock2 = mTextBlock2;
-    }
-
-    public String getValueBlock2() {
-        return mValueBlock2;
-    }
-
-    private void setValueBlock2(String mValueBlock2) {
+    private void setValueBlock2(String mValueBlock2){
         this.mValueBlock2 = mValueBlock2;
     }
 
-    public String getNameTextButton() {
-        return mNameTextButton;
-    }
-
-    private void setNameTextButton(String mNameTextButton) {
-        this.mNameTextButton = mNameTextButton;
+    private void setValueBlock3(String mValueBlock3){
+        this.mValueBlock3 = mValueBlock3;
     }
 
     private void init(Context context) {
@@ -152,18 +122,25 @@ public class Card_Question_Expand extends LinearLayout implements Card_Question_
 
     private void setClicks() {
         mLayoutHeader.setOnClickListener(getOnClickLayoutHeader());
-        mLikeButton.setOnClickListener(getOnClickButton());
-        mUnlikeButton.setOnClickListener(getOnClickButton());
+        mLikeButton.setOnClickListener(getOnClickLikeButton());
+        mUnlikeButton.setOnClickListener(getOnClickUnlikeButton());
     }
 
-    private OnClickListener getOnClickButton() {
+    private OnClickListener getOnClickLikeButton() {
         return new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (onLikeButtonClickListener != null) {
                     onLikeButtonClickListener.onClick();
                 }
+            }
+        };
+    }
 
+    private OnClickListener getOnClickUnlikeButton() {
+        return new OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 if(onUnlikeButtonClickListener != null){
                     onUnlikeButtonClickListener.onClick();
                 }
@@ -182,6 +159,43 @@ public class Card_Question_Expand extends LinearLayout implements Card_Question_
         };
     }
 
+    private void openAnim() {
+        ObjectAnimator.ofFloat(mArrowImageheader, View.ROTATION, ROTATION_270)
+                .setDuration(DURATION).start();
+    }
+
+    private void closeAnim() {
+        ObjectAnimator.ofFloat(mArrowImageheader, View.ROTATION, ROTATION_90)
+                .setDuration(DURATION).start();
+    }
+
+    private void setValueOnBlock1(String value) {
+        if (TextUtils.isEmpty(value)) {
+            mTextQuestion.setVisibility(GONE);
+        } else {
+            setValueBlock1(value);
+            mTextQuestion.setText(value);
+        }
+    }
+
+    private void setValueOnBlock2(String value) {
+        if (TextUtils.isEmpty(value)) {
+            //TODO - Disable visibility on components used on this block2
+        } else {
+            setValueBlock2(value);
+            //TODO - Set values on components used on this block2
+        }
+    }
+
+    private void setValueOnBlock3(String value){
+        if(TextUtils.isEmpty(value)){
+            mTextRemarks.setVisibility(GONE);
+        }else{
+            setValueBlock3(value);
+            mTextRemarks.setText(value);
+        }
+    }
+
     @Override
     public void openCard() {
         isCardOpen = true;
@@ -190,10 +204,6 @@ public class Card_Question_Expand extends LinearLayout implements Card_Question_
         openAnim();
     }
 
-    private void openAnim() {
-        ObjectAnimator.ofFloat(mArrowImageheader, View.ROTATION, ROTATION_270)
-                .setDuration(DURATION).start();
-    }
 
     @Override
     public void closeCard() {
@@ -203,126 +213,94 @@ public class Card_Question_Expand extends LinearLayout implements Card_Question_
         closeAnim();
     }
 
-    private void closeAnim() {
-        ObjectAnimator.ofFloat(mArrowImageheader, View.ROTATION, ROTATION_90)
-                .setDuration(DURATION).start();
-    }
-
     @Override
     public boolean isCardOpen() {
         return isCardOpen;
     }
 
     @Override
-    public void setTextHeader(String text) {
-        if (TextUtils.isEmpty(text)) {
+    public boolean isCardClose() {
+        return isCardOpen;
+    }
+
+    @Override
+    public void setTextHeader(String text_title_header) {
+        if (TextUtils.isEmpty(text_title_header)) {
             mTextHeader.setVisibility(GONE);
         } else {
-            setTitleHeader(text);
+            setTitleHeader(text_title_header);
             mTextHeader.setText(getTitleHeader());
         }
     }
 
     @Override
-    public void setTextButton(String text) {
-        setNameTextButton(text);
-        //mButton.setText(text);
+    public String getTextHeader() {
+        return mTitleHeader;
     }
 
     @Override
-    public void setIconHeader(Drawable drawable) {
-        mIconImageHeader.setImageDrawable(drawable);
-    }
-
-    @Override
-    public void setValuesBlock1(String text, String value) {
-
-        if (TextUtils.isEmpty(text) && TextUtils.isEmpty(value)) {
+    public void setTextQuestion(String text_question) {
+        if (TextUtils.isEmpty(text_question)) {
             mLayoutBodyBlock1.setVisibility(GONE);
         } else {
             mLayoutBodyBlock1.setVisibility(VISIBLE);
-            setTextPrimaryBlock1(text);
-            setValuePrimaryBlock1(value);
+            setValueOnBlock1(text_question);
         }
     }
 
     @Override
-    public void startAccessibility() {
-        mLayoutHeader.setContentDescription("Recolher " + getTitleHeader());
-
-        String accessibilityBlock1 = "";
-        String accessibilityBlock2 = "";
-
-        if (mLayoutBodyBlock1.getVisibility() == VISIBLE) {
-            accessibilityBlock1 = getTextBlock1() + "." + getValueBlock1();
-//            mPrimaryTextBody.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
-            //mPrimaryValueBody.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
-        }
-
-//        if (mLayoutBodyBlock2.getVisibility() == VISIBLE) {
-//            accessibilityBlock2 = "," + getTextBlock2() + "." + getValueBlock2();
-//        }
-
-        String description1 = "";
-        if (!TextUtils.isEmpty(accessibilityBlock1)) {
-            description1 = accessibilityBlock1;
-        }
-
-        String description2 = "";
-        if (!TextUtils.isEmpty(accessibilityBlock2)) {
-            description2 = accessibilityBlock2;
-        }
-
-        mLayoutBodyBlocks.setContentDescription(description1 + description2);
-
-        //mButton.setContentDescription(getNameTextButton());
+    public String getTextQuestion() {
+        return mTextQuestion.getText().toString().trim();
     }
 
-    private void setTextPrimaryBlock1(String text) {
-        if (TextUtils.isEmpty(text)) {
-            mTextQuestion.setVisibility(GONE);
+    @Override
+    public void setTextRemarks(String text_remarks){
+        if (TextUtils.isEmpty(text_remarks)) {
+            mLayoutBodyBlock3.setVisibility(GONE);
         } else {
-            setTextBlock1(text);
-            mTextQuestion.setText(text);
-        }
-    }
-
-    private void setValuePrimaryBlock1(String value) {
-        if (TextUtils.isEmpty(value)) {
-            mTextQuestion.setVisibility(GONE);
-        } else {
-            setValueBlock1(value);
-            mTextQuestion.setText(value);
-        }
-    }
-
-    private void setTextPrimaryBlock2(String text) {
-        if (TextUtils.isEmpty(text)) {
-        } else {
-            setTextBlock2(text);
-        }
-    }
-
-    private void setValuePrimaryBlock2(String value) {
-        if (TextUtils.isEmpty(value)) {
-        } else {
-            setValueBlock2(value);
+            mLayoutBodyBlock3.setVisibility(VISIBLE);
+            setValueOnBlock3(text_remarks);
         }
     }
 
     @Override
-    public void setContentDescriptionValuePrimaryBlock1(String text) {
-        //mPrimaryValueBody.setContentDescription(text);
+    public String getTextRemarks() {
+        return mTextRemarks.getText().toString().trim();
     }
 
-    public interface OnClickHeaderListener {
-        void onClick(boolean bool);
+    @Override
+    public void setLikeIconActivated() {
+        isLikeIconSet = true;
+        mLikeButton.setImageResource(R.drawable.ic_thumbs_up_icon_2);
+        mIconImageHeader.setImageResource(R.drawable.ic_thumbs_up_icon_2);
     }
 
-    public interface OnClickLikeButtonListener {
-        void onClick();
+    @Override
+    public void setLikeIconDeactivated() {
+        isLikeIconSet = false;
+        mLikeButton.setImageResource(R.drawable.ic_thumbs_up_icon);
     }
-    public interface OnClickUnlikeButtonListener {
-        void onClick();
+
+    @Override
+    public void setUnlikeIconActivated() {
+        isUnlikeIconSet = true;
+        mUnlikeButton.setImageResource(R.drawable.ic_thumbs_down_icon_2);
+        mIconImageHeader.setImageResource(R.drawable.ic_thumbs_down_icon_2);
+    }
+
+    @Override
+    public void setUnlikeIconDeactivated() {
+        isUnlikeIconSet = false;
+        mUnlikeButton.setImageResource(R.drawable.ic_thumbs_down_icon);
+    }
+
+    @Override
+    public boolean isLikeSet() {
+        return isLikeIconSet;
+    }
+
+    @Override
+    public boolean isUnlikeSet() {
+        return isUnlikeIconSet;
     }
 }

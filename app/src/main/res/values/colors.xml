@@ -3,6 +3,7 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="backgroundActivity">#f6f6f6</color>
 
     <color name="dusty_orange">#f69b35</color>
     <color name="soft_green">#81d787</color>
@@ -10,4 +11,5 @@
     <color name="warm_grey">#8f8f8f</color>
     <color name="greyish_brown">#444444</color>
     <color name="black">#000000</color>
+    <color name="backgroundCard">#ffffff</color>
 </resources>
