@@ -4,4 +4,5 @@
     <string name="card_question">Os pneus de seu caminhão estão adequadamente calibrados e em bom estado?</string>
     <string name="card_remarks">O cinto de segurança do lado do passageiro não está prendendo.</string>
     <string name="card_remarks_counter">0/130</string>
+    <string name="card_remarks_counter_text">%d/130</string>
 </resources>

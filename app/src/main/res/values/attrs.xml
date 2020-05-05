@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CardQuestionViewNH">
+        <attr name="isCardOpen" format="boolean" />
+        <attr name="status" format="integer" />
+        <attr name="header" format="string" />
+        <attr name="question" format="string" />
+        <attr name="remarks" format="string" />
+    </declare-styleable>
+
+</resources>

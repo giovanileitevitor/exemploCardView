@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,7 +35,6 @@
                 android:id="@+id/btn_closeCard"
                 android:layout_gravity="center"/>
 
-
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -46,40 +46,40 @@
 
         </LinearLayout>
 
-
-        <com.example.exemplocardview.componenteCardView.CardQuestion
-            android:id="@+id/expandcardview1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <Button
+        <com.example.exemplocardview.componenteCardView.CardQuestionViewNH
+            android:id="@+id/expandcardview2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PrintRemarks"
-            android:layout_margin="@dimen/size_16"
-            android:id="@+id/btn_printRemarks"
-            android:layout_gravity="center"/>
+            app:header="Titulo no XML"
+            app:question="Questao no XML"
+            app:remarks="Remarks no XML"
+            />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txt_output"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/size_16"
-            android:textAlignment="center"
-            tools:text="O U T P U T"/>
+<!--        <Button-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="PrintRemarks"-->
+<!--            android:layout_margin="@dimen/size_16"-->
+<!--            android:id="@+id/btn_printRemarks"-->
+<!--            android:layout_gravity="center"/>-->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txt_output2"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/size_16"
-            android:textAlignment="center"
-            tools:text="O U T P U T"/>
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/txt_output"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_margin="@dimen/size_16"-->
+<!--            android:textAlignment="center"-->
+<!--            tools:text="O U T P U T"/>-->
 
-
-
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/txt_output2"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_margin="@dimen/size_16"-->
+<!--            android:textAlignment="center"-->
+<!--            tools:text="O U T P U T"/>-->
 
 
     </LinearLayout>
