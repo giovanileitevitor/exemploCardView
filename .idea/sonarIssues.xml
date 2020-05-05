@@ -18,6 +18,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/.gitignore">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/build.gradle">
           <value>
             <set />
@@ -59,6 +64,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/example/exemplocardview/componenteCardView/CardQuestion.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/exemplocardview/componenteCardView/CardQuestion.kt">
           <value>
             <set />
           </value>
@@ -149,6 +159,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../questionnaire-android/features/questionnaire/src/main/java/com/abinbev/hive/questionnaire/infrastructure/customView/cardQuestionComponent/CardQuestion.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../questionnaire-android/features/questionnaire/src/main/java/com/abinbev/hive/questionnaire/infrastructure/customView/cardQuestionComponent/CardQuestion.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../questionnaire-android/features/questionnaire/src/main/java/com/abinbev/hive/questionnaire/infrastructure/customView/cardQuestionComponent/CardQuestionInterface.kt">
           <value>
             <set />
           </value>
