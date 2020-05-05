@@ -29,6 +29,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
+                android:text="Close Card"
+                android:layout_margin="@dimen/size_16"
+                android:id="@+id/btn_closeCard"
+                android:layout_gravity="center"/>
+
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
                 android:text="Reset Card"
                 android:layout_margin="@dimen/size_16"
                 android:id="@+id/btn_resetCard"
