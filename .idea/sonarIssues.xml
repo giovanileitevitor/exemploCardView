@@ -188,6 +188,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../questionnaire-android/features/questionnaire/src/main/java/com/abinbev/hive/questionnaire/infrastructure/customViews/cardQuestion/CardQuestion.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../questionnaire-android/features/questionnaire/src/main/java/com/abinbev/hive/questionnaire/infrastructure/customViews/cardQuestion/CardQuestionAnimation.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../questionnaire-android/features/questionnaire/src/main/res/drawable/background_btn.xml">
           <value>
             <set />

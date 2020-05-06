@@ -2,6 +2,7 @@ package com.example.exemplocardview.componenteCardView
 
 import android.animation.ObjectAnimator
 import android.content.Context
+import android.content.res.Resources
 import android.os.Parcel
 import android.os.Parcelable
 import android.text.Editable
@@ -119,15 +120,17 @@ class CardQuestion : LinearLayout {
     }
 
     private fun updateCounter(text: String) {
-        mCounterTextRemarks?.text = "${text.length}/130"
+        val res: Resources = resources
+        var counter= res.getString(R.string.card_remarks_counter_max, text.length.toString())
+        mCounterTextRemarks?.text = counter
     }
 
     constructor(context: Context?) : super(context) {
-        initialize(null, 0)
+        initialize(null)
     }
 
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
-        initialize(attrs, 0)
+        initialize(attrs)
     }
 
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
@@ -135,10 +138,10 @@ class CardQuestion : LinearLayout {
         attrs,
         defStyleAttr
     ) {
-        initialize(attrs, defStyleAttr)
+        initialize(attrs)
     }
 
-    private fun initialize(attrs: AttributeSet?, defStyleAttr: Int) {
+    private fun initialize(attrs: AttributeSet?) {
 
         val inflater = context
             .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater

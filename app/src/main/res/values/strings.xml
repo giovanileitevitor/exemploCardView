@@ -5,4 +5,10 @@
     <string name="card_remarks">O cinto de segurança do lado do passageiro não está prendendo.</string>
     <string name="card_remarks_counter">0/130</string>
     <string name="card_remarks_counter_text">%d/130</string>
+    <string name="card_remarks_counter_max">%s/130</string>
+    <string name="card_header">Header or Title</string>
+    <string name="card_image_header_icon">card_image_header</string>
+    <string name="unlike_button_description">Unlike button</string>
+    <string name="like_button_description">Like button</string>
+
 </resources>
