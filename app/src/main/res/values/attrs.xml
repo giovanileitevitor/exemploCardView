@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="CardQuestionViewNH">
+    <declare-styleable name="CardQuestion">
         <attr name="isCardOpen" format="boolean" />
         <attr name="status" format="integer" />
         <attr name="header" format="string" />

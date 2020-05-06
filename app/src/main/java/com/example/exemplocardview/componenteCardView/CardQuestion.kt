@@ -15,22 +15,17 @@ import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.exemplocardview.R
 
-class CardQuestionViewNH : LinearLayout {
+class CardQuestion : LinearLayout {
 
     private var mLayoutHeader: ConstraintLayout? = null
     private var mIconImageHeader: ImageView? = null
     private var mArrowImageheader: ImageView? = null
-
     private var mLayoutBody: LinearLayout? = null
-    private var mLayoutBodyBlock1: LinearLayout? = null
-
     private var mLikeButton: ImageButton? = null
     private var mUnlikeButton: ImageButton? = null
-
     private var mTextHeader: TextView? = null
     private var mTextQuestion: TextView? = null
     private var mCounterTextRemarks: TextView? = null
-
     private var mTextRemarks: EditText? = null
 
     var isCardOpen: Boolean = true
@@ -56,9 +51,9 @@ class CardQuestionViewNH : LinearLayout {
             mTextQuestion?.text = field
 
             if (TextUtils.isEmpty(field.trim())) {
-                mLayoutBodyBlock1?.visibility = View.GONE
+                mTextQuestion?.visibility = View.GONE
             } else {
-                mLayoutBodyBlock1?.visibility = View.VISIBLE
+                mTextQuestion?.visibility = View.VISIBLE
             }
         }
 
@@ -156,7 +151,7 @@ class CardQuestionViewNH : LinearLayout {
 
         //Body
         mLayoutBody = cardRoot.findViewById(R.id.layout_body)
-        mLayoutBodyBlock1 = cardRoot.findViewById<LinearLayout>(R.id.layout_body_block1)
+
 
         mTextHeader = cardRoot.findViewById(R.id.text_header)
         mTextQuestion = cardRoot.findViewById(R.id.text_question)
@@ -171,13 +166,13 @@ class CardQuestionViewNH : LinearLayout {
 
         attrs?.let {
             val typedArray =
-                context.obtainStyledAttributes(it, R.styleable.CardQuestionViewNH, 0, 0)
+                context.obtainStyledAttributes(it, R.styleable.CardQuestion, 0, 0)
 
-            isCardOpen = typedArray.getBoolean(R.styleable.CardQuestionViewNH_isCardOpen, true)
-            status = typedArray.getInt(R.styleable.CardQuestionViewNH_status, 0)
-            header = typedArray.getString(R.styleable.CardQuestionViewNH_header) ?: ""
-            question = typedArray.getString(R.styleable.CardQuestionViewNH_question) ?: ""
-            remarks = typedArray.getString(R.styleable.CardQuestionViewNH_remarks) ?: ""
+            isCardOpen = typedArray.getBoolean(R.styleable.CardQuestion_isCardOpen, true)
+            status = typedArray.getInt(R.styleable.CardQuestion_status, 0)
+            header = typedArray.getString(R.styleable.CardQuestion_header) ?: ""
+            question = typedArray.getString(R.styleable.CardQuestion_question) ?: ""
+            remarks = typedArray.getString(R.styleable.CardQuestion_remarks) ?: ""
         }
     }
 
@@ -259,9 +254,7 @@ class CardQuestionViewNH : LinearLayout {
     }
 
     /**
-     * ***************************************************************
      * Saved State inner static class
-     * ***************************************************************
      */
     private class SavedState : View.BaseSavedState {
         var isCardOpen: Boolean = true

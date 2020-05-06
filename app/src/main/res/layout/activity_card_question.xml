@@ -46,7 +46,7 @@
 
         </LinearLayout>
 
-        <com.example.exemplocardview.componenteCardView.CardQuestionViewNH
+        <com.example.exemplocardview.componenteCardView.CardQuestion
             android:id="@+id/expandcardview2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
