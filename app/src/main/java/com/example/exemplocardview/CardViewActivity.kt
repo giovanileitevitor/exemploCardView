@@ -40,7 +40,7 @@ class CardViewActivity : AppCompatActivity() {
         }
 
         btn_resetCard.setOnClickListener {
-            expandcardview2.resetComponent()
+
         }
     }
 }
