@@ -17,8 +17,9 @@ class CardViewActivity : AppCompatActivity() {
 
     private fun initCardView(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
-            expandcardview2.header = "Tapecaria"
-            expandcardview2.question = "Estado Geral da Tapecaria"
+            expandcardview2.header = "Title or Header"
+            expandcardview2.question = "Input your question here"
+            expandcardview2.remarks = "Add your remarks here"
         }
     }
 
@@ -30,9 +31,9 @@ class CardViewActivity : AppCompatActivity() {
             //1 -> Like ativo
             //2 -> Unlike ativo
             expandcardview2.status = 0
-            expandcardview2.header = "Tapecaria"
-            expandcardview2.question = "Estado Geral da Tapecaria"
-            expandcardview2.remarks = "Tudo uma porcaria SQN"
+            expandcardview2.header = "Title or Header"
+            expandcardview2.question = "Input your question here"
+            expandcardview2.remarks = "Add your remarks here"
         }
 
         btn_closeCard.setOnClickListener {

@@ -21,7 +21,7 @@ class CardQuestion : LinearLayout {
     private var mLayoutHeader: ConstraintLayout? = null
     private var mIconImageHeader: ImageView? = null
     private var mArrowImageheader: ImageView? = null
-    private var mLayoutBody: LinearLayout? = null
+    private var mLayoutBody: ConstraintLayout? = null
     private var mLikeButton: ImageButton? = null
     private var mUnlikeButton: ImageButton? = null
     private var mTextHeader: TextView? = null
@@ -154,8 +154,6 @@ class CardQuestion : LinearLayout {
 
         //Body
         mLayoutBody = cardRoot.findViewById(R.id.layout_body)
-
-
         mTextHeader = cardRoot.findViewById(R.id.text_header)
         mTextQuestion = cardRoot.findViewById(R.id.text_question)
         mTextRemarks = cardRoot.findViewById(R.id.text_remarks)

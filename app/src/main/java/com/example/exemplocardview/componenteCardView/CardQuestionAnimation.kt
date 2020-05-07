@@ -13,7 +13,7 @@ fun View.animateVisibility(setVisible: Boolean) {
 private fun expand(view: View) {
     view.measure(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     val initialHeight = 0
-    val targetHeight = view.measuredHeight
+    val targetHeight = view.measuredHeight + 400
 
     view.layoutParams.height = 0
     view.visibility = View.VISIBLE
